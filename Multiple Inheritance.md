@@ -1,45 +1,51 @@
-# Exp.No:23  
-## Multiple Inheritance
-
+# Exp.No:24  
+## Multi-level Inheritance
 ---
-
 ### AIM  
-To write a Python program to get the name, attendance, and ID of a student and check if they are eligible for the next module using multiple inheritance. If attendance > 80, the student is eligible; otherwise, not eligible.
+To write a Python program to get the name, age and ID of a person and display them using Multilevel Inheritance.
 
 ---
-
 ### ALGORITHM
-
-1. Define the `Student` class.
-2. Inside the `Student` class, define the `__init__` method (constructor). The `__init__` method accepts two parameters: `name` and `student_id`.
-    - Inside the `__init__` method: Assign the value of `name` to `self.name` and `student_id` to `self.student_id`.
-3. Define the `get_student_info` method inside the `Student` class:
-    - This method should return a string formatted with `self.name` and `self.student_id`.
-4. Define the `Attendance` class, which inherits from the `Student` class.
-5. Inside the `Attendance` class, define the `__init__` method (constructor).
-    - The `__init__` method accepts three parameters: `name`, `student_id`, and `attendance`.
-    - Inside the `__init__` method: Call the parent class constructor `super().__init__(name, student_id)` to initialize `name` and `student_id`. Assign the value of `attendance` to `self.attendance`.
-6. Define the `check_eligibility` method inside the `Attendance` class:
-    - If `self.attendance` is greater than 80, return a formatted string indicating the student is eligible for the module exam.
-    - Otherwise, return a formatted string indicating the student is not eligible for the module exam.
-7. Prompt the user to enter the `name` (as a string), `student_id` (as an integer), and `attendance` (as an integer).
-8. Create an instance `student` of the `Attendance` class, passing the entered `name`, `student_id`, and `attendance` to the constructor.
-9. Call the `check_eligibility` method on the `student` object and print the result.
-10. Terminate the program.
+1. Define the `Person` class with an `__init__` method that initializes `name` and `age`.  
+2. Define the `PersonDetails` class that inherits from `Person` with an `__init__` method that initializes `name`, `age`, and `person_id` using `super()`.  
+3. Define the `DisplayDetails` class that inherits from `PersonDetails` with an `__init__` method that calls `super()` to initialize all attributes.  
+4. Define a `show_details()` method inside `DisplayDetails` that prints `name`, `age`, and `person_id`.  
+5. Accept `name`, `age`, and `person_id` from the user.  
+6. Create an instance of `DisplayDetails` and call `show_details()`.  
+7. Terminate the program.
 
 ---
-
 ### PROGRAM
+```python
+# Reg.No- 212222060100
+# Name- Jothivanan T
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
 
-```
+class PersonDetails(Person):
+    def __init__(self, name, age, person_id):
+        super().__init__(name, age)
+        self.person_id = person_id
 
+class DisplayDetails(PersonDetails):
+    def __init__(self, name, age, person_id):
+        super().__init__(name, age, person_id)
+
+    def show_details(self):
+        print(self.name, self.age, self.person_id)
+
+name = input()
+age = int(input())
+person_id = int(input())
+person = DisplayDetails(name, age, person_id)
+person.show_details()
 ```
 
 ### OUTPUT
+<img width="545" height="204" alt="image" src="https://github.com/user-attachments/assets/80b499bf-aec1-493f-b5ca-63537e186937" />
 
 
 ### RESULT
-
-
-
-
+Thus, the Python program to get the name, age and ID of a person and display them using Multilevel Inheritance has been successfully executed and the output is verified.
